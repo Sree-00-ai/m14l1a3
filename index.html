@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Conditional Statements</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2ff;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 25px;
+            max-width: 420px;
+            margin: auto;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px #cccccc;
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Student Result Checker</h2>
+
+        <p>Enter your marks (0–100):</p>
+
+        <input type="number" id="marks" placeholder="Enter your marks" min="0" max="100">
+
+        <br>
+
+        <button onclick="checkResult()">Check Result</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function checkResult() {
+            const marksInput = document.getElementById("marks").value;
+            const marks = Number(marksInput);
+            let message = "";
+
+            if (marksInput.trim() === "" ||
+                marks < 0 || marks > 100) {
+                message = "Please enter marks between 0 and 100.";
+            }
+            else if (marks >= 75) {
+                message = "Distinction! Excellent work!";
+            }
+            else if (marks >= 35) {
+                message = "Pass! Keep learning!";
+            }
+            else {
+                message = "Fail. Try again!";
+            }
+
+            document.getElementById("result").textContent = message;
+        }
+    </script>
+
+</body>
+
+</html>
